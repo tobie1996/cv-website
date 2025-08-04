@@ -29,7 +29,7 @@ const PersonalDetailsForm: React.FC<Props> = ({ personalDetails, setPersonalDeta
         onChange={(e) => handleChange(e, 'fullName')}
         className='input input-bordered w-full'
       />
-      <div className='flex'>
+      <div className='flex flex-col sm:flex-row gap-4'>
         <input
           type="email"
           placeholder='Email'
@@ -38,17 +38,17 @@ const PersonalDetailsForm: React.FC<Props> = ({ personalDetails, setPersonalDeta
           className='input input-bordered w-full'
         />
         <input
-          type="email"
+          type="tel"
           placeholder='Numéro de téléphone'
           value={personalDetails.phone}
           onChange={(e) => handleChange(e, 'phone')}
-          className='input input-bordered w-full ml-4'
+          className='input input-bordered w-full'
         />
       </div>
 
       <input
         type="text"
-        placeholder='Addresse'
+        placeholder='Adresse'
         value={personalDetails.address}
         onChange={(e) => handleChange(e, 'address')}
         className='input input-bordered w-full'
@@ -63,7 +63,7 @@ const PersonalDetailsForm: React.FC<Props> = ({ personalDetails, setPersonalDeta
 
       <input
         type="text"
-        placeholder='Post Recherché'
+        placeholder='Poste Recherché'
         value={personalDetails.postSeeking}
         onChange={(e) => handleChange(e, 'postSeeking')}
         className='input input-bordered w-full'
@@ -73,7 +73,8 @@ const PersonalDetailsForm: React.FC<Props> = ({ personalDetails, setPersonalDeta
         placeholder='Description de la personne'
         value={personalDetails.description}
         onChange={(e) => handleChange(e, 'description')}
-        className='input input-bordered w-full'
+        className='textarea textarea-bordered w-full'
+        rows={3}
       ></textarea>
 
 

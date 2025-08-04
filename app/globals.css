@@ -47,3 +47,58 @@
         padding-top: 2rem;
     }
 }
+
+/* Styles responsive pour mobile */
+@media (max-width: 1023px) {
+    /* Éviter le zoom automatique sur les inputs iOS */
+    input, textarea, select {
+        font-size: 16px !important;
+    }
+    
+    /* Améliorer l'espacement sur mobile */
+    .card-body {
+        padding: 1rem;
+    }
+    
+    /* Modal responsive */
+    .modal-box {
+        max-width: 95vw !important;
+        max-height: 90vh !important;
+        margin: 1rem;
+        overflow-y: auto;
+    }
+    
+    /* Boutons plus accessibles sur mobile */
+    .btn {
+        min-height: 2.5rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .btn-sm {
+        min-height: 2rem;
+        padding: 0.25rem 0.75rem;
+    }
+    
+    /* Améliorer les alertes sur mobile */
+    .alert {
+        padding: 0.75rem;
+    }
+    
+    /* Navbar responsive */
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Styles pour les badges responsive */
+@media (max-width: 640px) {
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .badge-lg {
+        font-size: 0.875rem;
+        padding: 0.375rem 0.75rem;
+    }
+}

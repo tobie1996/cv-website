@@ -10,7 +10,7 @@
     "static/chunks/node_modules_html2canvas-pro_dist_html2canvas-pro_136ea2.js",
     "static/chunks/node_modules_jspdf_dist_jspdf_es_min_c277e7.js",
     "static/chunks/node_modules_93b1da._.js",
-    "static/chunks/node_modules_044fa4._.js"
+    "static/chunks/node_modules_0c8843._.js"
   ],
   "source": "dynamic"
 });

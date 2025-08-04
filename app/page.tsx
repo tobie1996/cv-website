@@ -302,35 +302,49 @@ export default function Home() {
 
 
         <dialog id="my_modal_3" className="modal">
-          <div className="modal-box w-full max-w-6xl mx-auto px-4 sm;px-6 lg:px-8">
+          <div className="modal-box w-full max-w-6xl mx-auto px-2 sm:px-4 lg:px-8">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
               <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
 
             <div className="mt-5">
-              <div className="flex justify-end mb-5">
-                <button onClick={handleDownloadPdf} className="btn btn-primary">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-5">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <select
+                    value={theme}
+                    onChange={(e) => setTheme(e.target.value)}
+                    className="select select-bordered select-sm"
+                  >
+                    {themes.map((themeOption) => (
+                      <option key={themeOption} value={themeOption}>
+                        {themeOption}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <button onClick={handleDownloadPdf} className="btn btn-primary btn-sm sm:btn-md">
                   Télécharger
                   <Save className='w-4' />
                 </button>
               </div>
 
-              <div className="w-full max-x-full overflow-auto">
+              <div className="w-full max-w-full overflow-auto">
                 <div className="w-full max-w-full flex justify-center items-center">
-                  <CVPreview
-                    personalDetails={personalDetails}
-                    file={file}
-                    theme={theme}
-                    experiences={experiences}
-                    educations={educations}
-                    languages={languages}
-                    hobbies={hobbies}
-                    skills={skills}
-                    download={true}
-                    ref={cvPreviewRef}
-
-                  />
+                  <div className="transform scale-50 sm:scale-75 lg:scale-100 origin-top">
+                    <CVPreview
+                      personalDetails={personalDetails}
+                      file={file}
+                      theme={theme}
+                      experiences={experiences}
+                      educations={educations}
+                      languages={languages}
+                      hobbies={hobbies}
+                      skills={skills}
+                      download={true}
+                      ref={cvPreviewRef}
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -341,21 +355,219 @@ export default function Home() {
       </div>
 
       <div className="lg:hidden">
-        <div className="hero bg-base-200 min-h-screen">
-          <div className="hero-content text-center">
-            <div className="max-w-md">
-              <h1 className="text-3xl font-bold">Désolé, le CV Builder est uniquement accessible sur ordinateur.</h1>
-              <Image
-                src="/sad-sorry.gif"
-                width={500}
-                height={500}
-                alt="Picture of the author"
-                className="mx-auto my-6"
-              />
-              <p className="py-6">
-                Pour créer et personnaliser votre CV, veuillez utiliser un ordinateur. Nous vous remercions de votre compréhension.
-              </p>
+        <div className="min-h-screen bg-base-100">
+          {/* Header Mobile */}
+          <div className="navbar bg-primary text-primary-content sticky top-0 z-50">
+            <div className="flex-1">
+              <a className="btn btn-ghost text-xl font-bold">CV Builder</a>
             </div>
+            <div className="flex-none">
+              <button 
+                className="btn btn-ghost btn-sm"
+                onClick={() => (document.getElementById('my_modal_3') as HTMLDialogElement).showModal()}
+              >
+                <Eye className="w-4 h-4" />
+                Aperçu
+              </button>
+            </div>
+          </div>
+
+          {/* Contenu Mobile */}
+          <div className="p-4 space-y-6">
+            {/* Section Informations Personnelles */}
+            <div className="card bg-base-200 shadow-xl">
+              <div className="card-body">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="card-title text-primary">Informations Personnelles</h2>
+                  <button
+                    onClick={handleResetPersonalDetails}
+                    className="btn btn-primary btn-sm"
+                  >
+                    <RotateCw className="w-4" />
+                  </button>
+                </div>
+                <PersonalDetailsForm
+                  personalDetails={personalDetails}
+                  setPersonalDetails={setPersonalDetails}
+                  setFile={setFile}
+                />
+              </div>
+            </div>
+
+            {/* Section Expériences */}
+            <div className="card bg-base-200 shadow-xl">
+              <div className="card-body">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="card-title text-primary">Expériences</h2>
+                  <button
+                    onClick={handleResetExperiences}
+                    className="btn btn-primary btn-sm"
+                  >
+                    <RotateCw className="w-4" />
+                  </button>
+                </div>
+                <ExperienceForm
+                  experience={experiences}
+                  setExperiences={setExperience}
+                />
+                {experiences.length > 0 && (
+                  <div className="mt-4">
+                    <div className="divider">Expériences ajoutées</div>
+                    <div className="space-y-2">
+                      {experiences.map((exp, index) => (
+                        <div key={index} className="alert alert-info">
+                          <div>
+                            <div className="font-bold">{exp.jobTitle}</div>
+                            <div className="text-sm opacity-70">{exp.companyName}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Section Formation */}
+            <div className="card bg-base-200 shadow-xl">
+              <div className="card-body">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="card-title text-primary">Formation</h2>
+                  <button
+                    onClick={handleResetEducations}
+                    className="btn btn-primary btn-sm"
+                  >
+                    <RotateCw className="w-4" />
+                  </button>
+                </div>
+                <EducationForm
+                  educations={educations}
+                  setEducations={setEducations}
+                />
+                {educations.length > 0 && (
+                  <div className="mt-4">
+                    <div className="divider">Formations ajoutées</div>
+                    <div className="space-y-2">
+                      {educations.map((edu, index) => (
+                        <div key={index} className="alert alert-info">
+                          <div>
+                            <div className="font-bold">{edu.degree}</div>
+                            <div className="text-sm opacity-70">{edu.school}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Section Langues */}
+            <div className="card bg-base-200 shadow-xl">
+              <div className="card-body">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="card-title text-primary">Langues</h2>
+                  <button
+                    onClick={handleResetLanguages}
+                    className="btn btn-primary btn-sm"
+                  >
+                    <RotateCw className="w-4" />
+                  </button>
+                </div>
+                <LanguageForm
+                  languages={languages}
+                  setLanguages={setLanguages}
+                />
+                {languages.length > 0 && (
+                  <div className="mt-4">
+                    <div className="divider">Langues ajoutées</div>
+                    <div className="grid grid-cols-1 gap-2">
+                      {languages.map((lang, index) => (
+                        <div key={index} className="flex justify-between items-center bg-base-100 p-3 rounded-lg">
+                          <span className="font-semibold">{lang.language}</span>
+                          <span className="badge badge-primary">{lang.proficiency}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Section Compétences */}
+            <div className="card bg-base-200 shadow-xl">
+              <div className="card-body">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="card-title text-primary">Compétences</h2>
+                  <button
+                    onClick={handleResetSkills}
+                    className="btn btn-primary btn-sm"
+                  >
+                    <RotateCw className="w-4" />
+                  </button>
+                </div>
+                <SkillForm
+                  skills={skills}
+                  setSkills={setSkills}
+                />
+                {skills.length > 0 && (
+                  <div className="mt-4">
+                    <div className="divider">Compétences ajoutées</div>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.map((skill, index) => (
+                        <div key={index} className="badge badge-outline badge-lg">
+                          {skill.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Section Loisirs */}
+            <div className="card bg-base-200 shadow-xl">
+              <div className="card-body">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="card-title text-primary">Loisirs</h2>
+                  <button
+                    onClick={handleResetHobbies}
+                    className="btn btn-primary btn-sm"
+                  >
+                    <RotateCw className="w-4" />
+                  </button>
+                </div>
+                <HobbyForm
+                  hobbies={hobbies}
+                  setHobbies={setHobbies}
+                />
+                {hobbies.length > 0 && (
+                  <div className="mt-4">
+                    <div className="divider">Loisirs ajoutés</div>
+                    <div className="flex flex-wrap gap-2">
+                      {hobbies.map((hobby, index) => (
+                        <div key={index} className="badge badge-secondary badge-outline badge-lg">
+                          {hobby.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Bouton d'aperçu flottant */}
+            <div className="fixed bottom-6 right-6 z-40">
+              <button 
+                className="btn btn-primary btn-circle btn-lg shadow-2xl"
+                onClick={() => (document.getElementById('my_modal_3') as HTMLDialogElement).showModal()}
+              >
+                <Eye className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Espacement pour le bouton flottant */}
+            <div className="h-20"></div>
           </div>
         </div>
       </div>
