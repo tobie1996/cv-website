@@ -22,3 +22,28 @@
     -ms-overflow-style: none; 
     scrollbar-width: none; 
 }
+
+/* Styles pour la pagination du CV */
+@media print {
+    .page-break-before {
+        page-break-before: always;
+        break-before: page;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .shadow-lg {
+        box-shadow: none !important;
+    }
+}
+
+@media screen {
+    .page-break-before {
+        margin-top: 2rem;
+        border-top: 2px dashed #ccc;
+        padding-top: 2rem;
+    }
+}
