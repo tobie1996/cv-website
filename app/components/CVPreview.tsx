@@ -1,5 +1,5 @@
 import { Education, Experience, Hobby, Language, PersonalDetails, Skill } from '@/type';
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import { BriefcaseBusiness, GraduationCap, Mail, MapPinCheckInside, Phone, Star, Calendar, User } from 'lucide-react';
 
@@ -14,7 +14,7 @@ type Props = {
     hobbies: Hobby[];
     download?: boolean;
     isMobile?: boolean;
-    ref?: any
+    ref?: React.RefObject<HTMLDivElement | null>
 }
 
 function formatDate(dateString: string): string {
@@ -23,40 +23,9 @@ function formatDate(dateString: string): string {
     return date.toLocaleDateString('fr-FR', options);
 }
 
-const getStarRating = (proficiency: string) => {
-    const maxStars = 5;
-    let filledStars = 0;
-
-    switch (proficiency) {
-        case 'Débutant':
-            filledStars = 1;
-            break;
-        case 'Intermédiaire':
-            filledStars = 3;
-            break;
-        case 'Avancé':
-            filledStars = 5;
-            break;
-        default:
-            filledStars = 0;
-    }
-    return (
-        <div className="flex gap-1">
-            {Array.from({ length: filledStars }, (_, index) => (
-                <Star key={index} className="w-4 h-4 fill-primary text-primary" />
-            ))}
-            {Array.from({ length: maxStars - filledStars }, (_, index) => (
-                <Star key={index + filledStars} className="w-4 h-4 text-gray-300" />
-            ))}
-        </div>
-    );
-}
-
 // Fonction pour diviser le contenu en pages
 const paginateContent = (experiences: Experience[], educations: Education[], itemsPerPage = 3) => {
     const pages = [];
-    let currentPageExperiences: Experience[] = [];
-    let currentPageEducations: Education[] = [];
     
     // Première page avec expériences
     if (experiences.length > 0) {

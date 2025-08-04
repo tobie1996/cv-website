@@ -1,6 +1,5 @@
 "use client"
 import { Eye, RotateCw, Save } from "lucide-react";
-import Image from "next/image";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import { useEffect, useRef, useState } from "react";
 import { Education, Experience, Hobby, Language, PersonalDetails, Skill } from "@/type";
@@ -11,10 +10,10 @@ import EducationForm from "./components/EducationForm";
 import LanguageForm from "./components/LanguageForm";
 import SkillForm from "./components/SkillForm";
 import HobbyForm from "./components/HobbyForm";
-import { MobileOnboarding, MobileProgressIndicator, TouchGestureContainer } from "./components/MobileHelpers";
+import { MobileOnboarding, MobileProgressIndicator } from "./components/MobileHelpers";
 import html2canvas from "html2canvas-pro";
 import jsPDF from "jspdf";
-import confetti from "canvas-confetti"
+import confetti from "canvas-confetti";
 
 export default function Home() {
   const [personalDetails, setPersonalDetails] = useState<PersonalDetails>(personalDetailsPreset)
@@ -28,7 +27,6 @@ export default function Home() {
   const [hobbies, setHobbies] = useState<Hobby[]>(hobbiesPreset);
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [showOnboarding, setShowOnboarding] = useState<boolean>(false)
-  const [previewZoom, setPreviewZoom] = useState<number>(50)
 
   useEffect(() => {
     const defaultImageUrl = '/profile.jpg'

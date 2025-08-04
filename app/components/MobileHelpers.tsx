@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { X, Smartphone, Download, Eye, Info } from 'lucide-react'
+import { PersonalDetails, Experience, Education, Language, Skill, Hobby } from '@/type'
 
 interface MobileOnboardingProps {
   isVisible: boolean
@@ -33,7 +34,7 @@ export const MobileOnboarding: React.FC<MobileOnboardingProps> = ({ isVisible, o
               <Eye className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold text-sm">Prévisualisation</p>
-                <p className="text-xs text-gray-600">Utilisez les boutons "Aperçu" pour voir votre CV</p>
+                <p className="text-xs text-gray-600">Utilisez les boutons &quot;Aperçu&quot; pour voir votre CV</p>
               </div>
             </div>
             
@@ -41,7 +42,7 @@ export const MobileOnboarding: React.FC<MobileOnboardingProps> = ({ isVisible, o
               <Download className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold text-sm">Téléchargement</p>
-                <p className="text-xs text-gray-600">Téléchargez votre CV en PDF d'un simple clic</p>
+                <p className="text-xs text-gray-600">Téléchargez votre CV en PDF d&apos;un simple clic</p>
               </div>
             </div>
             
@@ -95,7 +96,6 @@ export const TouchGestureContainer: React.FC<TouchGestureProps> = ({
   className = '' 
 }) => {
   const [initialDistance, setInitialDistance] = useState<number | null>(null)
-  const [initialScale, setInitialScale] = useState(1)
 
   const getDistance = (touches: React.TouchList) => {
     if (touches.length < 2) return 0
@@ -110,7 +110,6 @@ export const TouchGestureContainer: React.FC<TouchGestureProps> = ({
   const handleTouchStart = (e: React.TouchEvent) => {
     if (e.touches.length === 2) {
       setInitialDistance(getDistance(e.touches))
-      setInitialScale(1)
     }
   }
 
@@ -140,12 +139,12 @@ export const TouchGestureContainer: React.FC<TouchGestureProps> = ({
 }
 
 export const MobileProgressIndicator: React.FC<{
-  personalDetails: any
-  experiences: any[]
-  educations: any[]
-  languages: any[]
-  skills: any[]
-  hobbies: any[]
+  personalDetails: PersonalDetails
+  experiences: Experience[]
+  educations: Education[]
+  languages: Language[]
+  skills: Skill[]
+  hobbies: Hobby[]
 }> = ({ personalDetails, experiences, educations, languages, skills, hobbies }) => {
   const calculateProgress = () => {
     let progress = 0

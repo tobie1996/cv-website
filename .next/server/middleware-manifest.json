@@ -1,6 +1,137 @@
 {
   "version": 3,
   "middleware": {},
-  "sortedMiddleware": [],
-  "functions": {}
+  "functions": {
+    "/og-image/route": {
+      "files": [
+        "server/server-reference-manifest.js",
+        "server/app/og-image/route_client-reference-manifest.js",
+        "server/middleware-build-manifest.js",
+        "server/middleware-react-loadable-manifest.js",
+        "server/next-font-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/573.js",
+        "server/app/og-image/route.js"
+      ],
+      "name": "app/og-image/route",
+      "page": "/og-image/route",
+      "matchers": [
+        {
+          "regexp": "^/og\\-image$",
+          "originalSource": "/og-image"
+        }
+      ],
+      "wasm": [
+        {
+          "name": "wasm_77d9faebf7af9e421806970ce10a58e9d83116d7",
+          "filePath": "server/edge-chunks/wasm_77d9faebf7af9e421806970ce10a58e9d83116d7.wasm"
+        },
+        {
+          "name": "wasm_ef4866ecae192fd87727067cf2c0c0cf9fb8b020",
+          "filePath": "server/edge-chunks/wasm_ef4866ecae192fd87727067cf2c0c0cf9fb8b020.wasm"
+        }
+      ],
+      "assets": [
+        {
+          "name": "noto-sans-v27-latin-regular.5dda3fca77107598.ttf",
+          "filePath": "server/edge-chunks/asset_noto-sans-v27-latin-regular.5dda3fca77107598.ttf"
+        }
+      ],
+      "env": {
+        "__NEXT_BUILD_ID": "6b4n7QY_WexJnOLOkOhW3",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "xLQSrFTatIqwYs32UVsDmK1O97N+wdcxGkj/eDi5rR0=",
+        "__NEXT_PREVIEW_MODE_ID": "f03220e72ce9ff1213e8380eee242493",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "f8540edf20f92fbf6a324210dda0435771af2eb34d8c9e709fe28f9d3219c462",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "3761da40dbf4eb729adfd2ceec234698a509e0a65b7de946a52ae012fea42b58"
+      }
+    },
+    "/apple-icon/route": {
+      "files": [
+        "server/middleware-build-manifest.js",
+        "server/middleware-react-loadable-manifest.js",
+        "server/next-font-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/573.js",
+        "server/edge-chunks/601.js",
+        "server/app/apple-icon/route.js"
+      ],
+      "name": "app/apple-icon/route",
+      "page": "/apple-icon/route",
+      "matchers": [
+        {
+          "regexp": "^/apple\\-icon$",
+          "originalSource": "/apple-icon"
+        }
+      ],
+      "wasm": [
+        {
+          "name": "wasm_77d9faebf7af9e421806970ce10a58e9d83116d7",
+          "filePath": "server/edge-chunks/wasm_77d9faebf7af9e421806970ce10a58e9d83116d7.wasm"
+        },
+        {
+          "name": "wasm_ef4866ecae192fd87727067cf2c0c0cf9fb8b020",
+          "filePath": "server/edge-chunks/wasm_ef4866ecae192fd87727067cf2c0c0cf9fb8b020.wasm"
+        }
+      ],
+      "assets": [
+        {
+          "name": "noto-sans-v27-latin-regular.5dda3fca77107598.ttf",
+          "filePath": "server/edge-chunks/asset_noto-sans-v27-latin-regular.5dda3fca77107598.ttf"
+        }
+      ],
+      "env": {
+        "__NEXT_BUILD_ID": "6b4n7QY_WexJnOLOkOhW3",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "xLQSrFTatIqwYs32UVsDmK1O97N+wdcxGkj/eDi5rR0=",
+        "__NEXT_PREVIEW_MODE_ID": "f03220e72ce9ff1213e8380eee242493",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "f8540edf20f92fbf6a324210dda0435771af2eb34d8c9e709fe28f9d3219c462",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "3761da40dbf4eb729adfd2ceec234698a509e0a65b7de946a52ae012fea42b58"
+      }
+    },
+    "/icon/route": {
+      "files": [
+        "server/middleware-build-manifest.js",
+        "server/middleware-react-loadable-manifest.js",
+        "server/next-font-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/573.js",
+        "server/edge-chunks/601.js",
+        "server/app/icon/route.js"
+      ],
+      "name": "app/icon/route",
+      "page": "/icon/route",
+      "matchers": [
+        {
+          "regexp": "^/icon$",
+          "originalSource": "/icon"
+        }
+      ],
+      "wasm": [
+        {
+          "name": "wasm_77d9faebf7af9e421806970ce10a58e9d83116d7",
+          "filePath": "server/edge-chunks/wasm_77d9faebf7af9e421806970ce10a58e9d83116d7.wasm"
+        },
+        {
+          "name": "wasm_ef4866ecae192fd87727067cf2c0c0cf9fb8b020",
+          "filePath": "server/edge-chunks/wasm_ef4866ecae192fd87727067cf2c0c0cf9fb8b020.wasm"
+        }
+      ],
+      "assets": [
+        {
+          "name": "noto-sans-v27-latin-regular.5dda3fca77107598.ttf",
+          "filePath": "server/edge-chunks/asset_noto-sans-v27-latin-regular.5dda3fca77107598.ttf"
+        }
+      ],
+      "env": {
+        "__NEXT_BUILD_ID": "6b4n7QY_WexJnOLOkOhW3",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "xLQSrFTatIqwYs32UVsDmK1O97N+wdcxGkj/eDi5rR0=",
+        "__NEXT_PREVIEW_MODE_ID": "f03220e72ce9ff1213e8380eee242493",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "f8540edf20f92fbf6a324210dda0435771af2eb34d8c9e709fe28f9d3219c462",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "3761da40dbf4eb729adfd2ceec234698a509e0a65b7de946a52ae012fea42b58"
+      }
+    }
+  },
+  "sortedMiddleware": []
 }

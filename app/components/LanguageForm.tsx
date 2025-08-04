@@ -29,9 +29,9 @@ const LanguageForm: React.FC<Props> = ({ languages, setLanguages }) => {
                 
                 // Extraire toutes les langues uniques
                 const languagesSet = new Set<string>();
-                countries.forEach((country: any) => {
+                countries.forEach((country: { languages?: Record<string, string> }) => {
                     if (country.languages) {
-                        Object.values(country.languages).forEach((lang: any) => {
+                        Object.values(country.languages).forEach((lang: string) => {
                             if (typeof lang === 'string') {
                                 languagesSet.add(lang);
                             }
